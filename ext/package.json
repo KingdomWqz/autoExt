@@ -1,0 +1,20 @@
+{
+  "name": "assistant",
+  "version": "1.0.0",
+  "description": "help to auto chrome extention",
+  "main": "content.js",
+  "dependencies": {
+    "axios": "^0.25.0"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^9.0.1",
+    "webpack": "^5.52.0",
+    "webpack-cli": "^4.8.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "author": "",
+  "license": "MIT"
+}
