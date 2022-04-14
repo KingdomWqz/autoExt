@@ -1,7 +1,8 @@
 from playwright.sync_api import sync_playwright
 
 with sync_playwright() as p:
-    browser = p.chromium.launch(headless=False)
+    # browser = p.chromium.launch(headless=False)
+    browser = p.chromium.connect_over_cdp("http://localhost:9222")
     page = browser.new_page()
     page.goto("http://pdm.jiaozic.com:88/hpx/admin-images.html")
 
@@ -16,5 +17,3 @@ with sync_playwright() as p:
 
     # 挂起任务，不直接关闭
     page.click("input#select")
-
-    
