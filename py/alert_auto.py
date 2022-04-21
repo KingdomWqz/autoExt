@@ -23,10 +23,10 @@ print(app)
 # dlg = app.top_window()
 # print(dlg)
 
-dlg = app.window(title_re=".*", control_type="Pane")
+# dlg = app.window(title_re=".*", control_type="Pane")
 
-# dlg.print_control_identifiers(depth=5)
-dlg.child_window(title="确定", control_type="Button").click()
+# # dlg.print_control_identifiers(depth=5)
+# dlg.child_window(title="确定", control_type="Button").click()
 
 # ctrl = dlg.child_window(title="poopcode.com 显示", control_type="Custom")
 # ctrl.print_control_identifiers()

@@ -1,25 +1,22 @@
-import time
-import webbrowser
-import os
-import threading
+from pywinauto.application import Application
+import pywinauto.mouse as mouse
 
-def start_browser():
-    path = os.getcwd().replace("\\", "/")
-    path += "../ext/dist"
-    print()
-    
-    print("starting browser")
-    chrome_path = 'C:/Program Files/Google/Chrome/Application/chrome.exe --load-extension="D:\dist" %s'
-    webbrowser.get(chrome_path).open('http://docs.python.org/')
+app = Application(backend='uia').connect(title_re=".*Chrome.*")
+tab = app.window(title_re=".*", control_type="Pane")
+# dlg = dlg['TitleBar']
+# dlg = dlg['ToolBar']
+# dlg = tab['Pane2']
+menu = tab.child_window(title="扩展程序", control_type="MenuItem")
+menu_rect = menu.rectangle()
+# dlg.click()
+# dlg.print_control_identifiers(depth=2)
 
-print(time.asctime(time.localtime(time.time())))
-t = threading.Thread(target=start_browser)
-t.start()
+mouse.click(button="left", coords=(menu_rect.left + 10, menu_rect.top + 5))
 
-time.sleep(30)
-os.system("taskkill /im chrome.exe /f")
-print(time.asctime(time.localtime(time.time())))
+# time.sleep(5)
 
+# print(tab.print_control_identifiers(depth=8))
 
-
-
+test = tab.child_window(title="FeHelper(前端助手)")
+test_rect = test.rectangle()
+mouse.click(button="left", coords=(test_rect.left, test_rect.top))
